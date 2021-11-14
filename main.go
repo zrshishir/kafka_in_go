@@ -1,16 +1,17 @@
-package kafka_in_go
+package main
 
 import (
 	"context"
 	"fmt"
 	"strconv"
 	"time"
+	"github.com/segmentio/kafka-go"
 )
 
 // the topic and broker address are initialized as constants
 const (
 	topic          = "message-log"
-	broker1Address = "localhost:9093"
+	broker1Address = "localhost:9092"
 	broker2Address = "localhost:9094"
 	broker3Address = "localhost:9095"
 )
@@ -21,6 +22,7 @@ func main() {
 	// produce messages in a new go routine, since
 	// both the produce and consume functions are
 	// blocking
+	//fmt.Println("tetsing")
 	go produce(ctx)
 	consume(ctx)
 }
